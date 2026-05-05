@@ -1,164 +1,146 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import ThemedImage from '@theme/ThemedImage';
 import Layout from '@theme/Layout';
+import styles from './index.module.css';
 
 function Home() {
+  const [chatOpen, setChatOpen] = useState(false);
+
   return (
     <Layout
-      title={`Book`}
-      description="Book educational content">
-      <div className="hero hero--primary" style={{
-        position: 'relative',
-        overflow: 'hidden',
-        background: 'linear-gradient(135deg, #2563eb 0%, #8b5cf6 50%, #ec4899 100%)',
-        color: 'white',
-        padding: '4rem 0',
-      }}>
-        {/* Decorative elements */}
-        <div style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          background: 'radial-gradient(circle at top right, rgba(255, 255, 255, 0.1) 0%, transparent 50%)',
-          pointerEvents: 'none',
-        }} />
-        <div style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          background: 'radial-gradient(circle at bottom left, rgba(255, 255, 255, 0.05) 0%, transparent 50%)',
-          pointerEvents: 'none',
-        }} />
-        
-        <div className="container">
-          <div className="row">
-            <div className="col col--6">
-              <h1 className="hero__title" style={{color: 'white'}}>Physical AI & Humanoid Robotics</h1>
-              <p className="hero__subtitle" style={{color: 'rgba(255, 255, 255, 0.9)'}}>A comprehensive guide to building intelligent, human-like robots</p>
-              <div className="margin-top--lg">
-                <a className="button button--secondary button--lg" href={useBaseUrl('/chapter-01')}>
-                  Start Reading
-                </a>
-                <a className="button button--outline button--lg margin-left--md" href={useBaseUrl('/chapter-01')}>
-                  Explore Chapters
-                </a>
-              </div>
+      title="Farida Bot - AI-Powered Learning"
+      description="Learn Physical AI & Humanoid Robotics with AI assistance">
+
+      {/* Hero Section */}
+      <div className={styles.hero}>
+        <div className={styles.heroContent}>
+          <div className={styles.heroText}>
+            <h1 className={styles.heroTitle}>
+              Master <span className={styles.gradient}>Physical AI</span> & Robotics
+            </h1>
+            <p className={styles.heroSubtitle}>
+              Learn from comprehensive guides with AI-powered assistance. Ask Farida Bot anything!
+            </p>
+            <div className={styles.heroButtons}>
+              <a href={useBaseUrl('/chapter-01')} className={`${styles.btn} ${styles.btnPrimary}`}>
+                📚 Start Learning
+              </a>
+              <button
+                onClick={() => setChatOpen(true)}
+                className={`${styles.btn} ${styles.btnSecondary}`}
+              >
+                💬 Chat with AI
+              </button>
             </div>
-            <div className="col col--6">
-              <ThemedImage
-                className="hero__image"
-                alt="Humanoid Robot"
-                sources={{
-                  light: useBaseUrl('/img/robot.png'),
-                  dark: useBaseUrl('/img/robot.png'),
-                }}
-                style={{borderRadius: '0.5rem', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)', width: '100%', maxHeight: '300px', objectFit: 'cover'}}
-              />
-            </div>
+          </div>
+          <div className={styles.heroImage}>
+            <div className={styles.robotIcon}>🤖</div>
           </div>
         </div>
       </div>
 
-      <div className="container margin-top--lg">
-        <div className="row">
-          <div className="col col--4 margin-bottom--lg">
-            <div className="text--center padding-horiz--md">
-              <div style={{fontSize: '2.5rem', marginBottom: '1rem', color: '#2563eb'}}>🤖</div>
-              <h3>Advanced Control Systems</h3>
-              <p>Learn about sophisticated control algorithms that enable humanoid robots to move with human-like agility.</p>
-            </div>
+      {/* Features Section */}
+      <div className={styles.features}>
+        <h2 className={styles.sectionTitle}>Why Choose Farida Bot?</h2>
+        <div className={styles.featureGrid}>
+          <div className={styles.featureCard}>
+            <div className={styles.featureIcon}>🧠</div>
+            <h3>AI-Powered Learning</h3>
+            <p>Get instant answers to your questions about robotics and AI concepts</p>
           </div>
-          <div className="col col--4 margin-bottom--lg">
-            <div className="text--center padding-horiz--md">
-              <div style={{fontSize: '2.5rem', marginBottom: '1rem', color: '#2563eb'}}>🧠</div>
-              <h3>Physical AI Integration</h3>
-              <p>Discover how artificial intelligence is combined with physical systems to create intelligent robots.</p>
-            </div>
+          <div className={styles.featureCard}>
+            <div className={styles.featureIcon}>📖</div>
+            <h3>Comprehensive Content</h3>
+            <p>14 detailed chapters covering everything from basics to advanced topics</p>
           </div>
-          <div className="col col--4 margin-bottom--lg">
-            <div className="text--center padding-horiz--md">
-              <div style={{fontSize: '2.5rem', marginBottom: '1rem', color: '#2563eb'}}>🔧</div>
-              <h3>Hardware Design</h3>
-              <p>Explore the mechanical and electronic components that make up modern humanoid robotics platforms.</p>
-            </div>
+          <div className={styles.featureCard}>
+            <div className={styles.featureIcon}>⚡</div>
+            <h3>Interactive Learning</h3>
+            <p>Learn at your own pace with interactive examples and explanations</p>
           </div>
-        </div>
-      </div>
-
-      <div className="container margin-top--lg">
-        <div className="row">
-          <div className="col">
-            <h2 className="text--center">Featured Chapters</h2>
-            <div className="row margin-top--lg">
-              <div className="col col--3 margin-bottom--lg">
-                <div className="card book-chapter-card">
-                  <div className="card__header">
-                    <h3 className="card__title">Chapter 1</h3>
-                  </div>
-                  <div className="card__body">
-                    <p>Physics Simulators in Robotics</p>
-                    <a href={useBaseUrl('/chapter-01')} className="button button--primary button--block">Read More</a>
-                  </div>
-                </div>
-              </div>
-              <div className="col col--3 margin-bottom--lg">
-                <div className="card book-chapter-card">
-                  <div className="card__header">
-                    <h3 className="card__title">Chapter 2</h3>
-                  </div>
-                  <div className="card__body">
-                    <p>Hardware Components</p>
-                    <a href={useBaseUrl('/chapter-02')} className="button button--primary button--block">Read More</a>
-                  </div>
-                </div>
-              </div>
-              <div className="col col--3 margin-bottom--lg">
-                <div className="card book-chapter-card">
-                  <div className="card__header">
-                    <h3 className="card__title">Chapter 3</h3>
-                  </div>
-                  <div className="card__body">
-                    <p>Control Systems</p>
-                    <a href={useBaseUrl('/chapter-03')} className="button button--primary button--block">Read More</a>
-                  </div>
-                </div>
-              </div>
-              <div className="col col--3 margin-bottom--lg">
-                <div className="card book-chapter-card">
-                  <div className="card__header">
-                    <h3 className="card__title">Chapter 4</h3>
-                  </div>
-                  <div className="card__body">
-                    <p>Sensing and Perception</p>
-                    <a href={useBaseUrl('/chapter-04')} className="button button--primary button--block">Read More</a>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className={styles.featureCard}>
+            <div className={styles.featureIcon}>🔧</div>
+            <h3>Practical Knowledge</h3>
+            <p>Real-world applications and hands-on guidance for robotics projects</p>
           </div>
         </div>
       </div>
 
-      <div className="container margin-top--lg">
-        <div className="row">
-          <div className="col">
-            <div className="card">
-              <div className="card__header">
-                <h2>Get Help from Farida Bot</h2>
-              </div>
-              <div className="card__body">
-                <p>Our integrated AI assistant is here to help you understand complex concepts in Physical AI & Humanoid Robotics. Ask questions, get explanations, and explore the book content interactively.</p>
-                <p style={{margin: '1rem 0'}}>Just click the <strong>FB</strong> button in the bottom right corner to start chatting with Farida Bot!</p>
-              </div>
-            </div>
-          </div>
+      {/* Chapters Preview */}
+      <div className={styles.chapters}>
+        <h2 className={styles.sectionTitle}>Featured Chapters</h2>
+        <div className={styles.chapterGrid}>
+          {[
+            { num: 1, title: 'Physics Simulators', icon: '⚙️' },
+            { num: 2, title: 'Hardware Components', icon: '🔩' },
+            { num: 3, title: 'Control Systems', icon: '🎮' },
+            { num: 4, title: 'Sensing & Perception', icon: '👁️' },
+            { num: 5, title: 'AI Integration', icon: '🧠' },
+            { num: 6, title: 'Motion Planning', icon: '🚀' },
+          ].map((chapter) => (
+            <a
+              key={chapter.num}
+              href={useBaseUrl(`/chapter-0${chapter.num}`)}
+              className={styles.chapterCard}
+            >
+              <div className={styles.chapterIcon}>{chapter.icon}</div>
+              <h3>Chapter {chapter.num}</h3>
+              <p>{chapter.title}</p>
+              <span className={styles.readMore}>Read More →</span>
+            </a>
+          ))}
         </div>
       </div>
+
+      {/* CTA Section */}
+      <div className={styles.cta}>
+        <h2>Ready to Learn?</h2>
+        <p>Start your journey into Physical AI and Humanoid Robotics today</p>
+        <button
+          onClick={() => setChatOpen(true)}
+          className={`${styles.btn} ${styles.btnLarge}`}
+        >
+          Ask Farida Bot Now 🤖
+        </button>
+      </div>
+
+      {/* Floating Chat Button */}
+      <button
+        className={styles.floatingChat}
+        onClick={() => setChatOpen(!chatOpen)}
+        title="Chat with Farida Bot"
+      >
+        <span className={styles.chatIcon}>💬</span>
+      </button>
+
+      {/* Chat Modal */}
+      {chatOpen && (
+        <div className={styles.chatModal}>
+          <div className={styles.chatHeader}>
+            <h3>Farida Bot 🤖</h3>
+            <button
+              onClick={() => setChatOpen(false)}
+              className={styles.closeBtn}
+            >
+              ✕
+            </button>
+          </div>
+          <div className={styles.chatBody}>
+            <p>👋 Hi! I'm Farida Bot. Ask me anything about Physical AI, Robotics, or the content in this book!</p>
+            <p style={{marginTop: '1rem', fontSize: '0.9rem', color: '#666'}}>
+              💡 Try asking: "What is Physical AI?" or "Explain control systems"
+            </p>
+          </div>
+          <div className={styles.chatFooter}>
+            <input
+              type="text"
+              placeholder="Type your question..."
+              className={styles.chatInput}
+            />
+            <button className={styles.sendBtn}>Send</button>
+          </div>
+        </div>
+      )}
     </Layout>
   );
 }
