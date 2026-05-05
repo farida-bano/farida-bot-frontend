@@ -43,7 +43,7 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          routeBasePath: '/', // Serve the docs at the site's root
+          routeBasePath: 'docs', // Change back to docs
           editUrl: undefined, // Explicitly set to undefined to remove "edit this page" links
           editCurrentVersion: false, // Disable editing of current version
         },
